@@ -23,13 +23,24 @@ def main():
 
     userName = ""
     while True:
-        userName = input("Digite o nome de usuario sem espacos:")
-        if userName.find(' ') != -1 or len(userName) == 0:
-            print("Nome de usuario invalido! Digite outro.")
-        else:
-            break 
+        while True:
+            userName = input("Digite o nome de usuario sem espacos:")
+            if userName.find(' ') != -1 or len(userName) == 0:
+                print("Nome de usuario invalido! Digite outro.")
+            else:
+                ip = clientSocket.getsockname()[0]
+                port = str(clientSocket.getsockname()[1])
+                break 
 
-    clientSocket.send(bytes(userName, "utf-8"))
+        clientSocket.send(bytes(userName + " " + ip + " " + port, "utf-8"))
+        status = clientSocket.recv(1024).decode("utf-8")
+        print(status)
+        while len(status) == 0:
+            status = clientSocket.recv(1024).decode("utf-8")
+            print(status)
+        if status == "OK":
+            break
+        print("[System]: Nome de usuario ja cadastrado por outra pessoa")
 
     t = Thread(target=readMessages, args=(clientSocket,))
     t.start()
