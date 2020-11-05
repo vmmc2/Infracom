@@ -65,14 +65,18 @@ def connection(con, cli): # con -> conectionSocket ------ cli -> addr
                 day = str(dt.strftime("%d"))
                 month = str(dt.strftime("%m"))
                 year = str(dt.strftime("%Y"))
-                finalMessage = userNameIP[userName] + ":" + userNamePort[userName] + "/~" + userName + ": " + space.join(l[3:]) + " " + hours + "h" + minutes + " " + day + "/" + month + "/" + year + " " + privateMessage
-                userNameSocket[destinationUser].send(bytes(finalMessage, "utf-8"))
+                destinedUser = " to [" + destinationUser + "]: "
+                finalMessage = userNameIP[userName] + ":" + userNamePort[userName] + "/~" + userName + destinedUser + space.join(l[3:]) + " " + hours + "h" + minutes + " " + day + "/" + month + "/" + year + " " + privateMessage
+                finalMessage2 = userNameIP[userName] + ":" + userNamePort[userName] + "/~" + userName + ": " + space.join(l[3:]) + " " + hours + "h" + minutes + " " + day + "/" + month + "/" + year + " " + privateMessage
+                userNameSocket[userName].send(bytes(finalMessage, "utf-8"))
+                userNameSocket[destinationUser].send(bytes(finalMessage2, "utf-8"))
         if msgReceived == "bye": # Mensagem enviada pelo usuário quando este deseja se desconectar
             con.send(bytes(msgReceived, "utf-8")) # É enviada uma mensagem de confirmação de desconexão ao usuário
             # Deleta-se os registros desse usuário em todos os dicionários usados pelo servidor
             del userNameSocket[userName]
             del userNameIP[userName]
             del userNamePort[userName]
+            break
         if msgReceived == "list": # Mensagem enviada pelo usuário quando este deseja obter a lista de todos os usuários conectados ao servidor no momento
             l = ["Usuarios Conectados:"]
             delimiter = '\n'
