@@ -32,6 +32,7 @@
   * Primeiro, execute o código do servidor. Isso pode ser feito pelo comando ```python server.py``` ou ```python3 server.py```
   * Depois, execute quantos códigos do cliente quiser. Isso pode ser feito pelo comando: ```python client.py``` ou ```python3 client.py```
   
+* __Caso haja algum problema na execução do programa, favor entrar em contato por meio: vmmc2@cin.ufpe.br__
 ## Screenshots
 
 ### Screenshot 1
