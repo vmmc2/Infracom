@@ -32,4 +32,10 @@
   * Primeiro, execute o código do servidor. Isso pode ser feito pelo comando ```python server.py``` ou ```python3 server.py```
   * Depois, execute quantos códigos do cliente quiser. Isso pode ser feito pelo comando: ```python client.py``` ou ```python3 client.py```
   
+## Screenshots
+![[s1]](Screenshot1.png)
+![[s2]](Screenshot2.png)
+![[s3]](Screenshot3.png)
+![[s4]](Screenshot4.png)
+  
 
