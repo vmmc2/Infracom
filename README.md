@@ -33,9 +33,17 @@
   * Depois, execute quantos códigos do cliente quiser. Isso pode ser feito pelo comando: ```python client.py``` ou ```python3 client.py```
   
 ## Screenshots
+
+### Screenshot 1
 ![[s1]](Screenshot1.png)
+
+### Screenshot 2
 ![[s2]](Screenshot2.png)
+
+### Screenshot 3
 ![[s3]](Screenshot3.png)
+
+### Screenshot 4
 ![[s4]](Screenshot4.png)
   
 
